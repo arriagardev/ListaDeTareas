@@ -4,14 +4,14 @@ using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
-namespace ListaDeTareas.Helpers
+namespace ListaDeTareas
 {
-    class CambiarAccionConverter : IValueConverter
+    public class CambiarAccionConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var TareaAccion = (bool)value;
-            return TareaAccion ? "Activar" : "Completar";
+            var completada = (bool)value;
+            return completada ? "Activar" : "Completar";            
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

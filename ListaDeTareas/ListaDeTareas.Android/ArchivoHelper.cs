@@ -12,7 +12,6 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using ListaDeTareas.Droid;
-using ListaDeTareas.Helpers;
 using Xamarin.Forms;
 
 [assembly: Xamarin.Forms.Dependency(typeof(ArchivoHelper))]

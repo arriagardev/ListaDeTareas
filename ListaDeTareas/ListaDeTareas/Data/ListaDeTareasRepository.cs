@@ -1,5 +1,4 @@
-﻿using ListaDeTareas.Helpers;
-using ListaDeTareas.Models;
+﻿using ListaDeTareas.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -18,19 +17,19 @@ namespace ListaDeTareas.Data
             _database.CreateTableAsync<TareaItem>().Wait();
         }
 
-        public List<TareaItem> _listaDeTareas = new List<TareaItem>
-        {
-            new TareaItem { Id = 0, Nombre = "Primera tarea", Completada = true},
-            new TareaItem { Id = 1, Nombre = "Segunda tarea"},
-            new TareaItem { Id = 2, Nombre = "Tercera tarea"},
-        };
+        //public List<TareaItem> _listaDeTareas = new List<TareaItem>
+        //{
+        //    new TareaItem { Id = 0, Nombre = "Primera tarea", Completada = true},
+        //    new TareaItem { Id = 1, Nombre = "Segunda tarea"},
+        //    new TareaItem { Id = 2, Nombre = "Tercera tarea"},
+        //};
 
         public async Task<List<TareaItem>> ObtenerLista()
         {            
-            if ((await _database.Table<TareaItem>().CountAsync() == 0))
-            {
-                await _database.InsertAllAsync(_listaDeTareas);
-            }
+            //if ((await _database.Table<TareaItem>().CountAsync() == 0))
+            //{
+            //    await _database.InsertAllAsync(_listaDeTareas);
+            //}
 
             return await _database.Table<TareaItem>().ToListAsync();
         }

@@ -35,12 +35,12 @@ namespace ListaDeTareas.ViewModel
         public Command AgregarTarea { get; set; }
         public string Titulo => "Mi Lista de Tareas";
 
-        public List<TareaItem> _listaDeTareas = new List<TareaItem>
-        {
-            new TareaItem { Id = 0, Nombre = "Primera tarea", Completada = true},
-            new TareaItem { Id = 1, Nombre = "Segunda tarea"},
-            new TareaItem { Id = 2, Nombre = "Tercera tarea"},
-        };        
+        //public List<TareaItem> _listaDeTareas = new List<TareaItem>
+        //{
+        //    new TareaItem { Id = 0, Nombre = "Primera tarea", Completada = true},
+        //    new TareaItem { Id = 1, Nombre = "Segunda tarea"},
+        //    new TareaItem { Id = 2, Nombre = "Tercera tarea"},
+        //};        
 
         private async Task<ILookup<string, TareaItem>> ObtenerListaAgrupada()
         {

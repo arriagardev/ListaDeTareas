@@ -5,21 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ListaDeTareas.Views.ListaDeTareasView"
-             xmlns:local="clr-namespace:ListaDeTareas.Helpers"
+             xmlns:local="clr-namespace:ListaDeTareas"
              Title="{Binding Titulo}">
     
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:CambiarAccionConverter x:Key="CambiarAccionConverter"/>
+            <local:CambiarAccionConverter x:Key="CambiarAccionesConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <!--<StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>-->
+        
         <StackLayout Orientation="Vertical">
 
             <ListView ItemsSource="{Binding ListaAgrupada}"
@@ -32,7 +28,7 @@
                             <TextCell.ContextActions>
                                 <MenuItem Command="{Binding Source={x:Reference ListadoDeTareas}, Path=BindingContext.Completada }" 
                                       CommandParameter="{Binding .}" 
-                                      Text="{Binding TareaAccion, Converter={StaticResource CambiarAccionConverter}}" />
+                                      Text="{Binding Completada, Converter={StaticResource CambiarAccionesConverter}}" />
                                 <MenuItem Command="{Binding Source={x:Reference ListadoDeTareas}, Path=BindingContext.Eliminar }" 
                                 CommandParameter="{Binding .}" Text="Eliminar" IsDestructive="True" />
                             </TextCell.ContextActions>
