@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ListaDeTareas.Views.ListaDeTareasView"
+             xmlns:local="clr-namespace:ListaDeTareas.Helpers"
+             Title="{Binding Titulo}">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CambiarAccionConverter x:Key="CambiarAccionConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <!--<StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>-->
+        <StackLayout Orientation="Vertical">
+
+            <ListView ItemsSource="{Binding ListaAgrupada}"
+                  IsGroupingEnabled="True"
+                  GroupDisplayBinding="{Binding Key}"
+                  x:Name="ListadoDeTareas">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nombre}" >
+                            <TextCell.ContextActions>
+                                <MenuItem Command="{Binding Source={x:Reference ListadoDeTareas}, Path=BindingContext.Completada }" 
+                                      CommandParameter="{Binding .}" 
+                                      Text="{Binding TareaAccion, Converter={StaticResource CambiarAccionConverter}}" />
+                                <MenuItem Command="{Binding Source={x:Reference ListadoDeTareas}, Path=BindingContext.Eliminar }" 
+                                CommandParameter="{Binding .}" Text="Eliminar" IsDestructive="True" />
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Command="{Binding AgregarTarea}" Text="Agregar Tarea"/>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
